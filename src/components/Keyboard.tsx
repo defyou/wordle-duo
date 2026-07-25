@@ -18,13 +18,35 @@ const ROWS = [
 ];
 
 export function Keyboard({ onKey, onEnter, onBackspace, letterStates, disabled }: KeyboardProps) {
-  const handleKeyDown = useCallback((e: KeyboardEvent) => {
-    if (disabled) return;
-    if (e.key === "Enter") { onEnter(); return; }
-    if (e.key === "Backspace") { onBackspace(); return; }
-    const key = e.key.toUpperCase();
-    if (/^[А-ЯЁ]$/.test(key)) onKey(key === "Ё" ? "Е" : key);
-  }, [disabled, onEnter, onBackspace, onKey]);
+ const handleKeyDown = useCallback((e: KeyboardEvent) => {
+  if (disabled) return;
+
+  const active = document.activeElement;
+
+  if (
+    active instanceof HTMLInputElement ||
+    active instanceof HTMLTextAreaElement ||
+    active?.getAttribute("contenteditable") === "true"
+  ) {
+    return;
+  }
+
+  if (e.key === "Enter") {
+    onEnter();
+    return;
+  }
+
+  if (e.key === "Backspace") {
+    onBackspace();
+    return;
+  }
+
+  const key = e.key.toUpperCase();
+
+  if (/^[А-ЯЁ]$/.test(key)) {
+    onKey(key === "Ё" ? "Е" : key);
+  }
+}, [disabled, onEnter, onBackspace, onKey]);
 
   useEffect(() => {
     window.addEventListener("keydown", handleKeyDown);
