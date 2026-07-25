@@ -54,8 +54,7 @@ export function Tile({ letter, state = "empty", isFlipping, flipDelay = 0, playe
 
       <div
         style={isFlipping ? { animationDelay: `${flipDelay}ms` } : undefined}
-        className={cn(
-  "w-full h-full border-2 flex items-center justify-center font-black",
+       className="w-full h-full border flex items-center justify-center font-black",
 )}
       >
         {letter}
