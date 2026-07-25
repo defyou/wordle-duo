@@ -4,7 +4,9 @@ import { ALLOWED_WORDS } from "./allowedWords.mjs";
 const WORD_LENGTH = 5;
 const MAX_ATTEMPTS = 6;
 
-const DICTIONARY = new Set(WORDS);
+const DICTIONARY = new Set(
+  ALLOWED_WORDS.map(word => word.toUpperCase())
+);
 
 function randomWord() {
   return WORDS[Math.floor(Math.random() * WORDS.length)];
