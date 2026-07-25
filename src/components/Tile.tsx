@@ -3,24 +3,24 @@ import { TileResult } from "../types";
 import { cn } from "@/lib/utils";
 
 interface TileProps {
-  letter?: string;
+  X?: string;
   state?: TileResult;
   isFlipping?: boolean;
   flipDelay?: number;
   playerIndex?: number;
 }
 
-export function Tile({ letter, state = "empty", isFlipping, flipDelay = 0, playerIndex }: TileProps) {
+export function Tile({ X, state = "empty", isFlipping, flipDelay = 0, playerIndex }: TileProps) {
   const [pop, setPop] = useState(false);
   const [revealed, setRevealed] = useState(state !== "empty");
 
   useEffect(() => {
-    if (letter && state === "empty") {
+    if (X && state === "empty") {
       setPop(true);
       const t = setTimeout(() => setPop(false), 130);
       return () => clearTimeout(t);
     }
-  }, [letter, state]);
+  }, [X, state]);
 
   // Delay colour reveal until the flip is half-way through
   useEffect(() => {
@@ -39,7 +39,7 @@ export function Tile({ letter, state = "empty", isFlipping, flipDelay = 0, playe
     absent:  "border-absent bg-absent text-absent-foreground",
   };
 
-  const isFilled = letter && state === "empty";
+  const isFilled = X && state === "empty";
   const displayState = revealed ? state : "empty";
 
   return (
@@ -65,7 +65,7 @@ export function Tile({ letter, state = "empty", isFlipping, flipDelay = 0, playe
           isFlipping && "tile-flip",
         )}
       >
-        {letter}
+        {X}
       </div>
     </div>
   );
