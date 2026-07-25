@@ -53,11 +53,13 @@ export function Tile({ letter, state = "empty", isFlipping, flipDelay = 0, playe
       )}
 
       <div
-        style={isFlipping ? { animationDelay: `${flipDelay}ms` } : undefined}
-       className="w-full h-full border flex items-center justify-center font-black"
-      >
-        {letter}
-      </div>
+  style={{
+    background: "red",
+  }}
+  className="w-full h-full"
+>
+  {letter}
+</div>
     </div>
   );
 }
