@@ -123,7 +123,7 @@ export function GameBoard({
       </header>
 
       {/* ── Body ────────────────────────────────────────────── */}
-      <div className="flex-1 flex min-h-0">
+      <div className="flex flex-col md:flex-row flex-1 min-h-0">
 
         {/* Board + Keyboard — centered inside available space */}
         <div className="flex-1 flex items-center justify-center min-h-0 overflow-y-auto px-4 py-3">
