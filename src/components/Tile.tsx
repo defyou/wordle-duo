@@ -44,7 +44,11 @@ export function Tile({ letter, state = "empty", isFlipping, flipDelay = 0, playe
 
   return (
     <div
-      className="relative perspective w-full aspect-square max-w-[3.25rem] sm:max-w-[4rem] md:max-w-[5.25rem] lg:max-w-[6rem]"
+      className="relative perspective
+w-[3.25rem] h-[3.25rem]
+sm:w-[4rem] sm:h-[4rem]
+md:w-[5.25rem] md:h-[5.25rem]
+lg:w-[6rem] lg:h-[6rem]"
     >
       {state !== "empty" && playerIndex !== undefined && (
         <div className="absolute -left-5 sm:-left-7 md:-left-9 top-1/2 -translate-y-1/2 text-[9px] sm:text-[11px] font-bold text-muted-foreground z-10">
