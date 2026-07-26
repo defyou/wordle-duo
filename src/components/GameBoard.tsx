@@ -100,7 +100,7 @@ export function GameBoard({
   }
 
   return (
-    <div className="h-[100dvh] bg-background text-foreground flex flex-col overflow-hidden">
+    <div className="min-h-[100dvh] bg-background text-foreground flex flex-col">
 
       {/* ── Header ──────────────────────────────────────────── */}
       <header className="shrink-0 w-full px-4 md:px-8 py-3 flex items-center justify-between border-b border-border/50">
