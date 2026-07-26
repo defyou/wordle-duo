@@ -160,7 +160,7 @@ export function GameBoard({
         </div>
 
         {/* Chat panel — fixed right column */}
-        <div className="shrink-0 w-[260px] md:w-[300px] lg:w-[340px] xl:w-[380px] border-l border-border/50 flex flex-col min-h-0">
+        <div className="shrink-0 w-full h-56 md:h-auto md:w-[300px] lg:w-[340px] xl:w-[380px] border-t md:border-t-0 md:border-l border-border/50 flex flex-col min-h-0">
           <ChatPanel
             messages={chatMessages}
             onSendMessage={onSendMessage}
