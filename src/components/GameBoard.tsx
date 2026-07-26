@@ -126,7 +126,7 @@ export function GameBoard({
       <div className="flex flex-col md:flex-row">
 
         {/* Board + Keyboard — centered inside available space */}
-        <div className="flex-1 flex items-center justify-center min-h-0 overflow-y-auto px-4 py-3">
+        <div className="flex-1 flex justify-center px-4 py-3">
           <div className="flex flex-col items-center w-full" style={{ gap: "clamp(12px, 2vh, 24px)" }}>
 
             {/* Turn indicator */}
