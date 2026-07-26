@@ -53,16 +53,20 @@ export function Tile({ letter, state = "empty", isFlipping, flipDelay = 0, playe
       )}
 
       <div
-  style={{
-    background: "red",
-    width: "100%",
-    height: "100%",
-    position: "relative",
-    zIndex: 9999,
-  }}
->
-  {letter}
-</div>
+        style={isFlipping ? { animationDelay: `${flipDelay}ms` } : undefined}
+        className={cn(
+          "w-full h-full border-2 rounded-xl flex items-center justify-center font-black",
+          "text-2xl sm:text-3xl md:text-4xl lg:text-[2.6rem]",
+          "uppercase select-none",
+          "transition-colors duration-150",
+          stateClasses[displayState],
+          isFilled && "border-primary/60 border-[3px]",
+          pop && "tile-pop",
+          isFlipping && "tile-flip",
+        )}
+      >
+        {letter}
+      </div>
     </div>
   );
 }
